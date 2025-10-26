@@ -1,65 +1,668 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  ArrowRight,
+  Users,
+  TrendingUp,
+  DollarSign,
+  Globe,
+  Shield,
+  Zap,
+  Target,
+  BarChart3,
+  Lock,
+  CheckCircle2,
+  Star,
+  Menu,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500">
+                <span className="text-lg font-bold text-white">A</span>
+              </div>
+              <span className="text-xl font-semibold">Advisora</span>
+            </div>
+
+            <div className="hidden items-center gap-8 md:flex">
+              <a href="#home" className="text-sm font-medium transition-colors hover:text-orange-500">Home</a>
+              <a href="#features" className="text-sm font-medium transition-colors hover:text-orange-500">Product</a>
+              <a href="#services" className="text-sm font-medium transition-colors hover:text-orange-500">Solution</a>
+              <a href="#pricing" className="text-sm font-medium transition-colors hover:text-orange-500">Pricing</a>
+              <a href="#about" className="text-sm font-medium transition-colors hover:text-orange-500">About us</a>
+              <a href="#contact" className="text-sm font-medium transition-colors hover:text-orange-500">Contact</a>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" className="hidden md:inline-flex">Sign in</Button>
+              <Button className="bg-orange-500 hover:bg-orange-600">Sign up</Button>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="flex flex-col justify-center space-y-6">
+            <Badge className="w-fit bg-orange-100 text-orange-700 hover:bg-orange-100">
+              Founded by data experts
+            </Badge>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              Build & growth with scalable tools
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Founded by data experts, we create cutting-edge SaaS analytics platforms tailored for businesses of all sizes.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+                Get started <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button size="lg" variant="outline">
+                Free trial
+              </Button>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop"
+              alt="Professional working on laptop"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="border-y bg-muted/30 py-12">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="space-y-2">
+              <p className="text-3xl font-bold">95%</p>
+              <p className="text-sm text-muted-foreground">Customer satisfaction rate, reflecting our dedication</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl font-bold">10+</p>
+              <p className="text-sm text-muted-foreground">Innovation and insights to users' financial decision</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl font-bold">$10m</p>
+              <p className="text-sm text-muted-foreground">Platform has amazing secure and efficient financial</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-3xl font-bold">50m</p>
+              <p className="text-sm text-muted-foreground">Users worldwide, providing them with financial solutions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About/Mission Section */}
+      <section id="about" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
+            <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
+            <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
+            <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
+            <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
+            <span className="ml-2 text-sm font-medium">4.97/5 reviews</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            We are passionate about empowering individuals and{" "}
+            <span className="text-muted-foreground">
+              businesses to take control of their finances and achieve their financial goals.
+            </span>
+          </h2>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="border-y bg-muted/30 py-16 lg:py-24">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Empowering and strengthening your financial success
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100">
+                  <BarChart3 className="h-6 w-6 text-orange-600" />
+                </div>
+                <CardTitle>Intuitive User Interface</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  We deliver an intuitive and user-friendly interface design that enables effortless navigation and a seamless user experience by displaying statistics provide clear and relevant insights to support your decisions in real-time.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
+                  <Shield className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle>Advanced Security</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Your financial data is protected with bank-level encryption and multi-factor authentication. We employ industry-leading security measures to ensure your information remains safe and confidential.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
+                  <Zap className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle>Real-time Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Get instant insights into your financial health with real-time data processing and analytics. Make informed decisions with up-to-the-minute information at your fingertips.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
+                  <Target className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle>Goal Tracking</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Set and track your financial goals with our intelligent goal management system. Receive personalized recommendations and progress updates to help you achieve your objectives faster.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-pink-100">
+                  <TrendingUp className="h-6 w-6 text-pink-600" />
+                </div>
+                <CardTitle>Smart Forecasting</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Leverage AI-powered forecasting to predict future trends and make proactive financial decisions. Our algorithms analyze your data to provide accurate projections.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-100">
+                  <Globe className="h-6 w-6 text-yellow-600" />
+                </div>
+                <CardTitle>Multi-platform Access</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Access your financial data anywhere, anytime on any device. Our cloud-based platform ensures seamless synchronization across all your devices for ultimate convenience.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            Comprehensive Financial Solutions
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            From personal finance to enterprise analytics, we provide tailored solutions for every need
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-orange-500">
+              <Users className="h-7 w-7 text-white" />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold">Personal Finance</h3>
+            <p className="text-muted-foreground">
+              Manage your personal budget, track expenses, and build wealth with our intuitive personal finance tools designed for individuals.
+            </p>
+          </div>
+
+          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-blue-500">
+              <DollarSign className="h-7 w-7 text-white" />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold">Business Analytics</h3>
+            <p className="text-muted-foreground">
+              Powerful analytics tools for businesses to track revenue, expenses, and growth metrics. Make data-driven decisions with confidence.
+            </p>
+          </div>
+
+          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-500">
+              <Lock className="h-7 w-7 text-white" />
+            </div>
+            <h3 className="mb-2 text-xl font-semibold">Enterprise Security</h3>
+            <p className="text-muted-foreground">
+              Enterprise-grade security features including SSO, advanced permissions, and compliance tools for large organizations.
+            </p>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="border-y bg-muted/30 py-16 lg:py-24">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Trusted by thousands of users
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              See what our customers have to say about their experience
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <Avatar>
+                    <AvatarImage src="https://i.pravatar.cc/150?img=1" />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <CardTitle className="text-base">John Davis</CardTitle>
+                    <CardDescription>CEO at TechCorp</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-2 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-orange-500 text-orange-500" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  "Advisora has transformed how we manage our company finances. The insights are invaluable and have helped us make better decisions."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <Avatar>
+                    <AvatarImage src="https://i.pravatar.cc/150?img=5" />
+                    <AvatarFallback>SM</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <CardTitle className="text-base">Sarah Mitchell</CardTitle>
+                    <CardDescription>Financial Advisor</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-2 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-orange-500 text-orange-500" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  "The best financial platform I've used. The interface is intuitive and the analytics are powerful. Highly recommend to anyone serious about their finances."
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <Avatar>
+                    <AvatarImage src="https://i.pravatar.cc/150?img=8" />
+                    <AvatarFallback>MC</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <CardTitle className="text-base">Michael Chen</CardTitle>
+                    <CardDescription>Small Business Owner</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-2 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-orange-500 text-orange-500" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  "As a small business owner, Advisora has been a game-changer. It's affordable, powerful, and saves me hours every week on financial management."
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            Simple, transparent pricing
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Choose the perfect plan for your needs. All plans include a 14-day free trial.
+          </p>
+        </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>Starter</CardTitle>
+              <CardDescription>Perfect for individuals</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$9</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Up to 3 accounts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Basic analytics</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Mobile app access</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Email support</span>
+                </div>
+              </div>
+              <Button className="w-full" variant="outline">
+                Start free trial
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="border-orange-500 shadow-lg">
+            <CardHeader>
+              <Badge className="w-fit bg-orange-500">Most Popular</Badge>
+              <CardTitle>Professional</CardTitle>
+              <CardDescription>For growing businesses</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">$29</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Unlimited accounts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Advanced analytics</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Priority support</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Custom integrations</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">API access</span>
+                </div>
+              </div>
+              <Button className="w-full bg-orange-500 hover:bg-orange-600">
+                Start free trial
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Enterprise</CardTitle>
+              <CardDescription>For large organizations</CardDescription>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">Custom</span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Everything in Professional</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Dedicated support</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Custom contracts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">SLA guarantees</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">On-premise option</span>
+                </div>
+              </div>
+              <Button className="w-full" variant="outline">
+                Contact sales
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="border-y bg-muted/30 py-16 lg:py-24">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Frequently asked questions
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              Everything you need to know about our platform
+            </p>
+          </div>
+          <div className="mx-auto max-w-3xl space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">How secure is my financial data?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  We use bank-level 256-bit encryption to protect your data. All data is encrypted both in transit and at rest. We're also SOC 2 Type II certified and comply with all major financial regulations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Can I cancel my subscription anytime?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Yes, you can cancel your subscription at any time with no cancellation fees. Your data will remain accessible for 30 days after cancellation, giving you time to export if needed.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Do you offer discounts for annual billing?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Yes! Annual billing saves you 20% compared to monthly billing. You'll get 2 months free when you choose to pay annually.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">What integrations do you support?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  We integrate with over 10,000 financial institutions, as well as popular tools like QuickBooks, Xero, Stripe, and many more. Custom integrations are available on Enterprise plans.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Is there a mobile app?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Yes, we have native iOS and Android apps that sync seamlessly with the web platform. All features are available on mobile with an optimized, user-friendly interface.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="contact" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-16 lg:px-16">
+          <div className="relative z-10 mx-auto max-w-2xl text-center text-white">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Ready to take control of your finances?
+            </h2>
+            <p className="mb-8 text-lg text-orange-50">
+              Join thousands of satisfied users and start your journey to financial success today. Get started with a 14-day free trial.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50">
+                Get started now <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                Schedule a demo
+              </Button>
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-grid-white/10" />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t bg-muted/30">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-12">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500">
+                  <span className="text-lg font-bold text-white">A</span>
+                </div>
+                <span className="text-xl font-semibold">Advisora</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Empowering businesses with cutting-edge financial analytics and management tools.
+              </p>
+              <div className="flex gap-3">
+                <Button size="icon" variant="ghost">
+                  <Facebook className="h-5 w-5" />
+                </Button>
+                <Button size="icon" variant="ghost">
+                  <Twitter className="h-5 w-5" />
+                </Button>
+                <Button size="icon" variant="ghost">
+                  <Linkedin className="h-5 w-5" />
+                </Button>
+                <Button size="icon" variant="ghost">
+                  <Instagram className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Product</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-orange-500">Features</a></li>
+                <li><a href="#" className="hover:text-orange-500">Pricing</a></li>
+                <li><a href="#" className="hover:text-orange-500">Security</a></li>
+                <li><a href="#" className="hover:text-orange-500">Integrations</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Company</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-orange-500">About us</a></li>
+                <li><a href="#" className="hover:text-orange-500">Careers</a></li>
+                <li><a href="#" className="hover:text-orange-500">Blog</a></li>
+                <li><a href="#" className="hover:text-orange-500">Press</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Contact</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>hello@advisora.com</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>+1 (555) 123-4567</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>San Francisco, CA</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 border-t pt-8">
+            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+              <p className="text-sm text-muted-foreground">
+                © 2024 Advisora. All rights reserved.
+              </p>
+              <div className="flex gap-6 text-sm text-muted-foreground">
+                <a href="#" className="hover:text-orange-500">Privacy Policy</a>
+                <a href="#" className="hover:text-orange-500">Terms of Service</a>
+                <a href="#" className="hover:text-orange-500">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
