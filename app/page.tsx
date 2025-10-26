@@ -63,17 +63,17 @@ export default function Home() {
             </div>
 
             <div className="hidden items-center gap-8 md:flex">
-              <a href="#home" className="text-sm font-medium transition-colors hover:text-orange-500">Home</a>
-              <a href="#features" className="text-sm font-medium transition-colors hover:text-orange-500">Product</a>
-              <a href="#services" className="text-sm font-medium transition-colors hover:text-orange-500">Solution</a>
-              <a href="#pricing" className="text-sm font-medium transition-colors hover:text-orange-500">Pricing</a>
-              <a href="#about" className="text-sm font-medium transition-colors hover:text-orange-500">About us</a>
-              <a href="#contact" className="text-sm font-medium transition-colors hover:text-orange-500">Contact</a>
+              <a href="#home" className="text-sm font-semibold transition-colors hover:text-orange-500">Home</a>
+              <a href="#features" className="text-sm font-semibold transition-colors hover:text-orange-500">Product</a>
+              <a href="#services" className="text-sm font-semibold transition-colors hover:text-orange-500">Solution</a>
+              <a href="#pricing" className="text-sm font-semibold transition-colors hover:text-orange-500">Pricing</a>
+              <a href="#about" className="text-sm font-semibold transition-colors hover:text-orange-500">About us</a>
+              <a href="#contact" className="text-sm font-semibold transition-colors hover:text-orange-500">Contact</a>
             </div>
 
             <div className="flex items-center gap-4">
-              <Button variant="ghost" className="hidden md:inline-flex">Sign in</Button>
-              <Button className="bg-orange-500 hover:bg-orange-600">Sign up</Button>
+              <Button variant="ghost" className="hidden md:inline-flex font-semibold">Sign in</Button>
+              <Button className="bg-orange-500 hover:bg-orange-600 font-semibold">Sign up</Button>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
               </Button>
