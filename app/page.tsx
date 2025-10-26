@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +26,27 @@ import {
   Linkedin,
   Instagram
 } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.6 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 export default function Home() {
   return (
@@ -62,56 +85,93 @@ export default function Home() {
       {/* Hero Section */}
       <section id="home" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          <div className="flex flex-col justify-center space-y-6">
-            <Badge className="w-fit bg-orange-100 text-orange-700 hover:bg-orange-100">
-              Founded by data experts
-            </Badge>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <motion.div
+            className="flex flex-col justify-center space-y-6"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <Badge className="w-fit bg-orange-100 text-orange-700 hover:bg-orange-100">
+                Founded by data experts
+              </Badge>
+            </motion.div>
+            <motion.h1
+              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
               Build & growth with scalable tools
-            </h1>
-            <p className="text-lg text-muted-foreground">
+            </motion.h1>
+            <motion.p
+              className="text-lg text-muted-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
               Founded by data experts, we create cutting-edge SaaS analytics platforms tailored for businesses of all sizes.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+            </motion.p>
+            <motion.div
+              className="flex flex-col gap-3 sm:flex-row"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105">
                 Get started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="transition-all hover:scale-105">
                 Free trial
               </Button>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50">
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop"
               alt="Professional working on laptop"
               className="h-full w-full object-cover"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="border-y bg-muted/30 py-12">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="space-y-2">
+          <motion.div
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">95%</p>
               <p className="text-sm text-muted-foreground">Customer satisfaction rate, reflecting our dedication</p>
-            </div>
-            <div className="space-y-2">
+            </motion.div>
+            <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">10+</p>
               <p className="text-sm text-muted-foreground">Innovation and insights to users' financial decision</p>
-            </div>
-            <div className="space-y-2">
+            </motion.div>
+            <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">$10m</p>
               <p className="text-sm text-muted-foreground">Platform has amazing secure and efficient financial</p>
-            </div>
-            <div className="space-y-2">
+            </motion.div>
+            <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">50m</p>
               <p className="text-sm text-muted-foreground">Users worldwide, providing them with financial solutions</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -138,13 +198,26 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="border-y bg-muted/30 py-16 lg:py-24">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="mb-12 text-center">
+          <motion.div
+            className="mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
               Empowering and strengthening your financial success
             </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card>
+          </motion.div>
+          <motion.div
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100">
                   <BarChart3 className="h-6 w-6 text-orange-600" />
@@ -157,8 +230,10 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
                   <Shield className="h-6 w-6 text-blue-600" />
@@ -171,8 +246,10 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
                   <Zap className="h-6 w-6 text-green-600" />
@@ -185,8 +262,10 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
                   <Target className="h-6 w-6 text-purple-600" />
@@ -199,8 +278,10 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-pink-100">
                   <TrendingUp className="h-6 w-6 text-pink-600" />
@@ -213,8 +294,10 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card>
+            <motion.div variants={fadeInUp}>
+              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-100">
                   <Globe className="h-6 w-6 text-yellow-600" />
@@ -227,51 +310,73 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Section */}
       <section id="services" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
-        <div className="mb-12 text-center">
+        <motion.div
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Comprehensive Financial Solutions
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             From personal finance to enterprise analytics, we provide tailored solutions for every need
           </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-orange-500">
+        </motion.div>
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div
+            className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+            variants={fadeInUp}
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-orange-500 transition-transform group-hover:scale-110">
               <Users className="h-7 w-7 text-white" />
             </div>
             <h3 className="mb-2 text-xl font-semibold">Personal Finance</h3>
             <p className="text-muted-foreground">
               Manage your personal budget, track expenses, and build wealth with our intuitive personal finance tools designed for individuals.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-blue-500">
+          <motion.div
+            className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+            variants={fadeInUp}
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-blue-500 transition-transform group-hover:scale-110">
               <DollarSign className="h-7 w-7 text-white" />
             </div>
             <h3 className="mb-2 text-xl font-semibold">Business Analytics</h3>
             <p className="text-muted-foreground">
               Powerful analytics tools for businesses to track revenue, expenses, and growth metrics. Make data-driven decisions with confidence.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-500">
+          <motion.div
+            className="group relative overflow-hidden rounded-xl border bg-card p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+            variants={fadeInUp}
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-500 transition-transform group-hover:scale-110">
               <Lock className="h-7 w-7 text-white" />
             </div>
             <h3 className="mb-2 text-xl font-semibold">Enterprise Security</h3>
             <p className="text-muted-foreground">
               Enterprise-grade security features including SSO, advanced permissions, and compliance tools for large organizations.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Testimonials Section */}
@@ -366,16 +471,29 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section id="pricing" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
-        <div className="mb-12 text-center">
+        <motion.div
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Simple, transparent pricing
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Choose the perfect plan for your needs. All plans include a 14-day free trial.
           </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
+        </motion.div>
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp}>
+            <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader>
               <CardTitle>Starter</CardTitle>
               <CardDescription>Perfect for individuals</CardDescription>
@@ -403,13 +521,15 @@ export default function Home() {
                   <span className="text-sm">Email support</span>
                 </div>
               </div>
-              <Button className="w-full" variant="outline">
+              <Button className="w-full transition-all hover:scale-105" variant="outline">
                 Start free trial
               </Button>
             </CardContent>
           </Card>
+          </motion.div>
 
-          <Card className="border-orange-500 shadow-lg">
+          <motion.div variants={fadeInUp}>
+            <Card className="border-orange-500 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1 hover:scale-105">
             <CardHeader>
               <Badge className="w-fit bg-orange-500">Most Popular</Badge>
               <CardTitle>Professional</CardTitle>
@@ -442,13 +562,15 @@ export default function Home() {
                   <span className="text-sm">API access</span>
                 </div>
               </div>
-              <Button className="w-full bg-orange-500 hover:bg-orange-600">
+              <Button className="w-full bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105">
                 Start free trial
               </Button>
             </CardContent>
           </Card>
+          </motion.div>
 
-          <Card>
+          <motion.div variants={fadeInUp}>
+            <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
             <CardHeader>
               <CardTitle>Enterprise</CardTitle>
               <CardDescription>For large organizations</CardDescription>
@@ -479,12 +601,13 @@ export default function Home() {
                   <span className="text-sm">On-premise option</span>
                 </div>
               </div>
-              <Button className="w-full" variant="outline">
+              <Button className="w-full transition-all hover:scale-105" variant="outline">
                 Contact sales
               </Button>
             </CardContent>
           </Card>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* FAQ Section */}
@@ -559,25 +682,49 @@ export default function Home() {
 
       {/* CTA Section */}
       <section id="contact" className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-16 lg:px-16">
+        <motion.div
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-16 lg:px-16"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="relative z-10 mx-auto max-w-2xl text-center text-white">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <motion.h2
+              className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               Ready to take control of your finances?
-            </h2>
-            <p className="mb-8 text-lg text-orange-50">
+            </motion.h2>
+            <motion.p
+              className="mb-8 text-lg text-orange-50"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
               Join thousands of satisfied users and start your journey to financial success today. Get started with a 14-day free trial.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50">
+            </motion.p>
+            <motion.div
+              className="flex flex-col gap-3 sm:flex-row sm:justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 transition-all hover:scale-105">
                 Get started now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
                 Schedule a demo
               </Button>
-            </div>
+            </motion.div>
           </div>
           <div className="absolute inset-0 bg-grid-white/10" />
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
@@ -595,16 +742,16 @@ export default function Home() {
                 Empowering businesses with cutting-edge financial analytics and management tools.
               </p>
               <div className="flex gap-3">
-                <Button size="icon" variant="ghost">
+                <Button size="icon" variant="ghost" className="transition-all hover:scale-110 hover:text-orange-500">
                   <Facebook className="h-5 w-5" />
                 </Button>
-                <Button size="icon" variant="ghost">
+                <Button size="icon" variant="ghost" className="transition-all hover:scale-110 hover:text-orange-500">
                   <Twitter className="h-5 w-5" />
                 </Button>
-                <Button size="icon" variant="ghost">
+                <Button size="icon" variant="ghost" className="transition-all hover:scale-110 hover:text-orange-500">
                   <Linkedin className="h-5 w-5" />
                 </Button>
-                <Button size="icon" variant="ghost">
+                <Button size="icon" variant="ghost" className="transition-all hover:scale-110 hover:text-orange-500">
                   <Instagram className="h-5 w-5" />
                 </Button>
               </div>
