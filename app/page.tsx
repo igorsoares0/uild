@@ -137,7 +137,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop"
+              src="/dfg.jpg"
               alt="Professional working on laptop"
               className="h-full w-full object-cover"
             />
