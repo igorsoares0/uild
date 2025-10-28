@@ -59,7 +59,7 @@ export default function Home() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500">
                 <span className="text-lg font-bold text-white">A</span>
               </div>
-              <span className="text-xl font-semibold">Advisora</span>
+              <span className="text-xl font-semibold">UILD</span>
             </div>
 
             <div className="hidden items-center gap-8 md:flex">
@@ -137,7 +137,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src="/dfg.jpg"
+              src="/hero.jpg"
               alt="Professional working on laptop"
               className="h-full w-full object-cover"
             />
@@ -782,7 +782,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  <span>hello@advisora.com</span>
+                  <span>hello@uild.com</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
@@ -799,7 +799,7 @@ export default function Home() {
           <div className="mt-12 border-t pt-8">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <p className="text-sm text-muted-foreground">
-                © 2024 Advisora. All rights reserved.
+                © 2025 UILD. All rights reserved.
               </p>
               <div className="flex gap-6 text-sm text-muted-foreground">
                 <a href="#" className="hover:text-orange-500">Privacy Policy</a>
