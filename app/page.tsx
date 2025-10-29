@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -34,11 +35,7 @@ const fadeInUp = {
   transition: { duration: 0.5 }
 };
 
-const fadeIn = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.6 }
-};
+
 
 const staggerContainer = {
   animate: {
@@ -72,8 +69,8 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-4">
-              <Button variant="ghost" className="hidden md:inline-flex font-semibold">Sign in</Button>
-              <Button className="bg-orange-500 hover:bg-orange-600 font-semibold">Sign up</Button>
+              <Button variant="ghost" className="hidden md:inline-flex font-bold">Sign in</Button>
+              <Button className="bg-orange-500 hover:bg-orange-600 font-bold">Sign up</Button>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
               </Button>
@@ -122,10 +119,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105">
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105 font-bold">
                 Get started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="transition-all hover:scale-105">
+              <Button size="lg" variant="outline" className="transition-all hover:scale-105 font-bold">
                 Free trial
               </Button>
             </motion.div>
@@ -136,10 +133,11 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img
+            <Image
               src="/hero.jpg"
               alt="Professional working on laptop"
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
             />
           </motion.div>
         </div>
@@ -161,7 +159,7 @@ export default function Home() {
             </motion.div>
             <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">10+</p>
-              <p className="text-sm text-muted-foreground">Innovation and insights to users' financial decision</p>
+              <p className="text-sm text-muted-foreground">Innovation and insights to users&apos; financial decision</p>
             </motion.div>
             <motion.div className="space-y-2" variants={fadeInUp}>
               <p className="text-3xl font-bold">$10m</p>
@@ -411,7 +409,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  "Advisora has transformed how we manage our company finances. The insights are invaluable and have helped us make better decisions."
+                  &quot;Advisora has transformed how we manage our company finances. The insights are invaluable and have helped us make better decisions.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -436,7 +434,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  "The best financial platform I've used. The interface is intuitive and the analytics are powerful. Highly recommend to anyone serious about their finances."
+                  &quot;The best financial platform I&apos;ve used. The interface is intuitive and the analytics are powerful. Highly recommend to anyone serious about their finances.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -461,7 +459,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  "As a small business owner, Advisora has been a game-changer. It's affordable, powerful, and saves me hours every week on financial management."
+                  &quot;As a small business owner, Advisora has been a game-changer. It&apos;s affordable, powerful, and saves me hours every week on financial management.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -521,7 +519,7 @@ export default function Home() {
                   <span className="text-sm">Email support</span>
                 </div>
               </div>
-              <Button className="w-full transition-all hover:scale-105" variant="outline">
+              <Button className="w-full transition-all hover:scale-105 font-bold" variant="outline">
                 Start free trial
               </Button>
             </CardContent>
@@ -562,7 +560,7 @@ export default function Home() {
                   <span className="text-sm">API access</span>
                 </div>
               </div>
-              <Button className="w-full bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105">
+              <Button className="w-full bg-orange-500 hover:bg-orange-600 transition-all hover:scale-105 font-bold">
                 Start free trial
               </Button>
             </CardContent>
@@ -601,7 +599,7 @@ export default function Home() {
                   <span className="text-sm">On-premise option</span>
                 </div>
               </div>
-              <Button className="w-full transition-all hover:scale-105" variant="outline">
+              <Button className="w-full transition-all hover:scale-105 font-bold" variant="outline">
                 Contact sales
               </Button>
             </CardContent>
@@ -628,7 +626,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We use bank-level 256-bit encryption to protect your data. All data is encrypted both in transit and at rest. We're also SOC 2 Type II certified and comply with all major financial regulations.
+                  We use bank-level 256-bit encryption to protect your data. All data is encrypted both in transit and at rest. We&apos;re also SOC 2 Type II certified and comply with all major financial regulations.
                 </p>
               </CardContent>
             </Card>
@@ -650,7 +648,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes! Annual billing saves you 20% compared to monthly billing. You'll get 2 months free when you choose to pay annually.
+                  Yes! Annual billing saves you 20% compared to monthly billing. You&apos;ll get 2 months free when you choose to pay annually.
                 </p>
               </CardContent>
             </Card>
@@ -715,10 +713,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 transition-all hover:scale-105">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 transition-all hover:scale-105 font-bold">
                 Get started now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
+              <Button size="lg" variant="outline" className="border-white text-orange-600 bg-white hover:bg-orange-50 transition-all hover:scale-105 font-bold">
                 Schedule a demo
               </Button>
             </motion.div>
@@ -736,7 +734,7 @@ export default function Home() {
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500">
                   <span className="text-lg font-bold text-white">A</span>
                 </div>
-                <span className="text-xl font-semibold">Advisora</span>
+                <span className="text-xl font-semibold">UILD</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Empowering businesses with cutting-edge financial analytics and management tools.
@@ -799,7 +797,7 @@ export default function Home() {
           <div className="mt-12 border-t pt-8">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <p className="text-sm text-muted-foreground">
-                © 2025 UILD. All rights reserved.
+                &copy; 2025 UILD. All rights reserved.
               </p>
               <div className="flex gap-6 text-sm text-muted-foreground">
                 <a href="#" className="hover:text-orange-500">Privacy Policy</a>
