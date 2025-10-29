@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +20,7 @@ import {
   CheckCircle2,
   Star,
   Menu,
+  X,
   Mail,
   Phone,
   MapPin,
@@ -27,7 +29,7 @@ import {
   Linkedin,
   Instagram
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -46,6 +48,8 @@ const staggerContainer = {
 };
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -70,12 +74,79 @@ export default function Home() {
 
             <div className="flex items-center gap-4">
               <Button variant="ghost" className="hidden md:inline-flex font-bold">Sign in</Button>
-              <Button className="bg-orange-500 hover:bg-orange-600 font-bold">Sign up</Button>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+              <Button className="bg-orange-500 hover:bg-orange-600 font-bold hidden md:inline-flex">Sign up</Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden border-t overflow-hidden"
+              >
+                <div className="py-4 space-y-3">
+                  <a 
+                    href="#home" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </a>
+                  <a 
+                    href="#features" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Product
+                  </a>
+                  <a 
+                    href="#services" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Solution
+                  </a>
+                  <a 
+                    href="#pricing" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Pricing
+                  </a>
+                  <a 
+                    href="#about" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About us
+                  </a>
+                  <a 
+                    href="#contact" 
+                    className="block px-4 py-2 text-sm font-semibold transition-colors hover:text-orange-500 hover:bg-orange-50 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact
+                  </a>
+                  <div className="px-4 pt-2 space-y-2">
+                    <Button variant="ghost" className="w-full font-bold justify-start">Sign in</Button>
+                    <Button className="w-full bg-orange-500 hover:bg-orange-600 font-bold">Sign up</Button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
 
